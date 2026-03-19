@@ -13,19 +13,21 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav>
-      <h1 id="nav-logo">adyala.dev</h1>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="tasks.html">WORK</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-      </ul>
-      <h2 class="nav-status">Available For Contract Work</h2>
+    <nav id="nav">
+      <div class="nav-container">
+        <h1 id="nav-logo">adyala.dev</h1>
+        <ul>
+          <li><a href="index">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="tasks.html">WORK</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+        <h2 class="nav-status">Available For Contract Work</h2>
+      </div>
     </nav>
 
-    <section>
-      <div id="home" name="home">
+    <section id="home">
+      <div class="home-container">
         <div class="home-left">
           <span class="home-status"
             ><span class="home-dot"> ● </span>Learning in public · Day XX</span
@@ -67,7 +69,7 @@
                 <p>PROJECT</p>
               </div>
               <div class="box-status">
-                <h1>X</h1>
+                <h1>∞</h1>
                 <p>SEMANGAT</p>
               </div>
             </div>
@@ -81,7 +83,10 @@
         <div class="about-left">
           <div class="about-left-text">
             <span class="about-status">02 - ABOUT</span>
-            <p class="about-welcome">Who am I.</p>
+            <p class="about-welcome">
+              Who <br />
+              am I.
+            </p>
           </div>
         </div>
         <div class="about-right">
@@ -103,11 +108,105 @@
             </div>
             <div class="about-right-stack">
               <div class="stack-title">
-                <h2>CURENT STACK</h2>
+                <h2>CURRENT STACK</h2>
               </div>
-
+              <div class="stack">
+                <span class="stack-name">HTML</span>
+                <span class="stack-name">CSS</span>
+                <span class="stack-name">JavaScript</span>
+                <span class="stack-name">React</span>
+                <span class="stack-name">Node.Js</span>
+                <span class="stack-name">PostgreSQL</span>
+                <span class="stack-name">Express</span>
+                <span class="stack-name">Git / GitHub</span>
+                <span class="stack-name">Vercel</span>
+                <span class="stack-name">Figma</span>
+              </div>
+              <div class="stack-status">
+                <span>
+                  <span>x</span>
+                  <span>Sudah Bisa</span>
+                </span>
+                <span>
+                  <span>x</span>
+                  <span>Sedang Belajar</span>
+                </span>
+                <span>
+                  <span>x</span>
+                  <span>Next Target</span>
+                </span>
+              </div>
+            </div>
+            <div class="stack-log">
+              <div class="stack-title">
+                <h2>JOURNEY</h2>
+              </div>
+              <div>
+                <table>
+                  <tr>
+                    <th class="th1">TANGGAL</th>
+                    <th class="th2">STATUS</th>
+                    <th class="th3">STACK</th>
+                  </tr>
+                  <tr>
+                    <td>Januari 2021</td>
+                    <td>Sudah Dilaksanakan</td>
+                    <td>Pertama Belajar HTML, CSS, JS</td>
+                  </tr>
+                  <tr>
+                    <td>Agustus 2023</td>
+                    <td>Sudah Dilaksanakan</td>
+                    <td>Menguasai DOM JS</td>
+                  </tr>
+                  <tr>
+                    <td>Desember 2024</td>
+                    <td>Sudah Dilaksanakan</td>
+                    <td>Memahami Git, GitHub, PHP dan Laravel</td>
+                  </tr>
+                  <tr>
+                    <td>Juli - September 2025</td>
+                    <td>Sudah Dilaksanakan</td>
+                    <td>
+                      Magang di PT. PLN Nusa Daya, serta membangun 3 aplikasi
+                      kantor [PHP,Laravel]
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Maret 2026</td>
+                    <td>Sedang Dilaksanakan</td>
+                    <td>
+                      Sedang Fokus Membangun Portofolio, dan Melatih ulang skill
+                      pemrograman [HTML,CSS,JS]
+                    </td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="work-container">
+        <div class="work-container-top">
+          <div class="work-left">
+            <div class="work-left-text">
+              <span class="work-status">03 - WORK</span>
+              <h1 class="work-welcome">Project & Work Log.</h1>
+            </div>
+          </div>
+          <div class="work-right">
+            <div class="work-right-box">
+              <span id="work-all">ALL</span>
+              <span id="work-frontend">FRONTEND</span>
+              <span id="work-fullstack">FULLSTACK</span>
+              <span id="work-inprogress">INPROGRESS</span>
+            </div>
+          </div>
+        </div>
+        <div class="work-container-bottom">
+          <div><img src="asdasdasdasd" alt="">asdadasdasd</div>
         </div>
       </div>
     </section>

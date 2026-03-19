@@ -4,7 +4,7 @@
   --fire-color: #ff4d00;
   --electric-color: #1a1aff;
   --linen-color: #e8e0d0;
-  --paper-color: #f5f08e;
+  --paper-color: #f6eee3;
   --ink-color: #0f0f0f;
 }
 html,
@@ -15,11 +15,20 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-nav {
+#nav {
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  height: 80px;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--paper-color);
+}
+
+.nav-container {
   display: flex;
   align-items: center;
-  padding: 25px 50px;
-  border-bottom: 1px solid #1616162c;
+  height: 100%;
+  width: 80%;
 }
 
 #nav-logo {
@@ -58,10 +67,20 @@ a:hover {
 /* HOME */
 
 #home {
+  height: 100vh;
+  border-top: 2px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--paper-color);
+
+}
+
+.home-container {
+  height: 80%;
+  width: 80%;
   display: flex;
   gap: 20px;
-  padding: 0 50px;
-  height: 90vh;
 }
 
 .home-left {
@@ -172,14 +191,13 @@ a:hover {
   border: 2px solid black;
 }
 
-
 #tag {
   font-family: Syne, sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: white;
   position: absolute;
-  bottom: 120px;
+  bottom: 140px;
   right: -20px;
   padding: 10px 20px;
   border: 2px solid black;
@@ -187,9 +205,9 @@ a:hover {
 }
 
 .home-right-status {
-    margin-top: 30px;
+  margin-top: 30px;
   width: 100%;
-  border: 2px solid rgba(0,0,0,0.3);
+  border: 2px solid rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-around;
 }
@@ -200,6 +218,7 @@ a:hover {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  text-align: center;
 }
 
 .box-status h1 {
@@ -214,14 +233,14 @@ a:hover {
 /* ================= ABOUT ==================== */
 
 #about {
-  height: 90vh;
+  height: 100vh;
   border-top: 1px solid rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.about-container{
+.about-container {
   height: 80%;
   width: 80%;
   display: flex;
@@ -232,20 +251,19 @@ a:hover {
   flex: 30%;
 }
 
-.about-status{
+.about-status {
   color: var(--fire-color);
-  font-size: smaller;
+  font-size: 0.8em;
   font-family: Roboto, sans-serif;
 }
 
-.about-welcome{
+.about-welcome {
   font-size: 4em;
   font-family: Syne, sans-serif;
   font-weight: 900;
 }
 .about-right {
   flex: 70%;
-  margin: auto;
 }
 
 .about-right-teks h4 {
@@ -257,8 +275,87 @@ a:hover {
   font-weight: 500;
   font-size: 1.3rem;
   color: #444444;
+  padding-bottom: 40px;
 }
 
 .stack-title {
   border-bottom: 1px solid #444444;
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 300;
+}
+
+.stack {
+  display: flex;
+  margin-top: 20px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.stack span {
+  border: 1px solid black;
+  padding: 5px 20px;
+  font-size: 1.5em;
+  font-weight: 500;
+  background-color: var(--paper-color);
+}
+
+.stack-log {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+}
+table {
+  margin-top: 20px;
+}
+.th1 {
+  width: 15%;
+}
+.th2 {
+  width: 20%;
+}
+.th3 {
+  width: 65%;
+  background-color: ;
+}
+th, td {
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.stack-log td {
+  padding: 5px 15px;
+}
+
+/* =================== WORK =============== */
+#work {
+  height: 100vh;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--linen-color);
+}
+
+.work-container {
+  height: 80%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.work-container-top {
+  width: 100%;
+  height: 30%;
+  display: flex;
+}
+
+.work-status {
+  color: var(--fire-color);
+  font-size: 0.8em;
+  font-family: Roboto, sans-serif;
+}
+
+.work-welcome {
+  font-size: 5em;
+  font-family: Syne, sans-serif;
 }

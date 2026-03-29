@@ -15,10 +15,18 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+#site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border: solid 2px rgb(255, 225, 198);
+  border-style:groove ;
+}
+
 #nav {
-  border-top: 1px solid rgba(0, 0, 0, 0.4);
   height: 80px;
-    display: flex;
+  position: sticky;
+  display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--paper-color);
@@ -68,19 +76,18 @@ a:hover {
 
 #home {
   height: 100vh;
-  border-top: 2px solid rgba(0, 0, 0, 0.3);
+  min-height: 800px;
+  max-height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--paper-color);
-
+  background-color: var(--linen-color);
 }
 
 .home-container {
-  height: 80%;
   width: 80%;
+  height: 80%;
   display: flex;
-  gap: 20px;
 }
 
 .home-left {
@@ -111,7 +118,7 @@ a:hover {
 
 .home-welcome {
   padding: 30px 0;
-  font-size: 96px;
+  font-size: 5rem;
   font-weight: 700;
   color: #333;
   font-family: Syne, sans-serif;
@@ -127,7 +134,7 @@ a:hover {
 }
 .home-bio {
   padding: 0px 0px 30px 0px;
-  font-size: 18px;
+  font-size: 1rem;
   color: #555;
   width: 60%;
 }
@@ -213,20 +220,20 @@ a:hover {
 }
 
 .box-status {
+  flex-wrap: wrap;
   display: flex;
-  background-color: white;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   text-align: center;
 }
 
-.box-status h1 {
-  font-size: 34px;
+.box-status dt {
+  font-size: 0.8em;
   color: var(--fire-color);
 }
-.box-status p {
-  font-size: 12px;
+.box-status dd {
+  font-size: 0.7rem;
   color: rgba(0, 0, 0, 0.5);
 }
 
@@ -234,6 +241,8 @@ a:hover {
 
 #about {
   height: 100vh;
+  min-height: 600px;
+  max-height: 1000px;
   border-top: 1px solid rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
@@ -253,12 +262,12 @@ a:hover {
 
 .about-status {
   color: var(--fire-color);
-  font-size: 0.8em;
+  font-size: 0.8rem;
   font-family: Roboto, sans-serif;
 }
 
 .about-welcome {
-  font-size: 4em;
+  font-size: 4rem;
   font-family: Syne, sans-serif;
   font-weight: 900;
 }
@@ -277,10 +286,12 @@ a:hover {
   color: #444444;
   padding-bottom: 40px;
 }
-
+.about-right-stack {
+  padding-top: 20px;
+}
 .stack-title {
   border-bottom: 1px solid #444444;
-  font-size: 0.7em;
+  font-size: 0.7rem;
   color: rgba(0, 0, 0, 0.5);
   font-weight: 300;
 }
@@ -291,12 +302,37 @@ a:hover {
   gap: 10px;
   flex-wrap: wrap;
 }
-.stack span {
+
+.stack li {
   border: 1px solid black;
   padding: 5px 20px;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   font-weight: 500;
   background-color: var(--paper-color);
+}
+
+.stack li.stack-done {
+  background-color: rgb(84, 201, 84);
+}
+.stack li.stack-learning {
+  background-color: #a1a0a0;
+}
+.stack-status {
+  display: flex;
+  gap: 20px;
+}
+.stack-status div {
+  display: flex;
+  gap: 10px;
+}
+.stack-status-dot {
+  color: var(--paper-color);
+}
+.stack-done-dot {
+  color: green;
+}
+.stack-learning-dot {
+  color: #a1a0a0;
 }
 
 .stack-log {
@@ -308,13 +344,13 @@ table {
   margin-top: 20px;
 }
 .th1 {
-  width: 15%;
+  width: 20%;
 }
 .th2 {
   width: 20%;
 }
 .th3 {
-  width: 65%;
+  width: 60 %;
   background-color: ;
 }
 th, td {
@@ -345,17 +381,124 @@ th, td {
 
 .work-container-top {
   width: 100%;
-  height: 30%;
+  height: 20%;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .work-status {
   color: var(--fire-color);
-  font-size: 0.8em;
+  font-size: 0.8rem;
   font-family: Roboto, sans-serif;
 }
 
 .work-welcome {
-  font-size: 5em;
+  font-size: 5rem;
   font-family: Syne, sans-serif;
+}
+
+.work-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.work-right-box {
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 10px 40px;
+  background-color: var(--fire-color);
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.work-container-bottom {
+  display: flex;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  overflow-y: auto;
+
+}
+
+.work-list {
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+/* Styling Footer */
+.main-footer {
+  height: 30vh;
+  background-color: white;
+  color: #ffffff;
+  padding: 4rem 0 2rem; /* Menggunakan rem untuk padding yang konsisten */
+  font-family: sans-serif;
+}
+
+.footer-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px; /* Agar responsif di layar kecil */
+  margin-bottom: 2rem;
+}
+
+.footer-section h3, .footer-section h4 {
+  font-size: 1.5rem; /* rem agar ikut membesar saat zoom */
+  margin-bottom: 1.2rem;
+  color: var(--fire-color); /* Warna aksen */
+}
+
+.footer-section p, .footer-section li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li a {
+  color: #444343;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #6b6b6b;
+}
+
+/* Bagian Bawah (Copyright) */
+.footer-bottom {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.9rem;
+  color: #888;
 }

@@ -1,214 +1,724 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="adyala.dev — Fullstack developer in progress. Dokumentasi jujur perjalanan belajar coding dari nol."
+    />
+
+    <!-- Open Graph (tampilan saat link di-share ke WA/sosmed) -->
+    <meta property="og:title" content="adyala.dev — Developer in Progress" />
+    <meta
+      property="og:description"
+      content="Belajar coding dari nol menuju fullstack developer. Dokumentasi jujur, no filter."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://adyala.dev" />
+
     <title>Portofolio | adyala.dev</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,400..700;1,400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <nav id="nav">
-      <div class="nav-container">
-        <h1 id="nav-logo">adyala.dev</h1>
-        <ul>
-          <li><a href="index">HOME</a></li>
-          <li><a href="about.html">ABOUT</a></li>
-          <li><a href="tasks.html">WORK</a></li>
-          <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-        <h2 class="nav-status">Available For Contract Work</h2>
-      </div>
-    </nav>
-
-    <section id="home">
-      <div class="home-container">
-        <div class="home-left">
-          <span class="home-status"
-            ><span class="home-dot"> ● </span>Learning in public · Day XX</span
+    <!--
+      ✅ PERUBAHAN: <nav> sudah semantic, tapi dibungkus <header>
+         karena <header> = bagian paling atas dari halaman/site
+         <nav> di dalam <header> = navigasi utama situs
+    -->
+    <header id="site-header">
+      <nav id="nav" aria-label="Navigasi utama">
+        <div class="nav-container">
+          <!-- ✅ Logo pakai <a> bukan <h1> — logo bukan heading konten -->
+          <a
+            href="index.html"
+            id="nav-logo"
+            aria-label="adyala.dev — Kembali ke beranda"
+            >adyala.dev</a
           >
-          <p class="home-welcome">
-            Hi, I'm
-            <span class="fire-color">Azanata.</span>
-            <span class="electric-color">Developer</span>
-            <br />
-            in progress.
-          </p>
-          <p class="home-bio">
-            Belajar coding dari <strong>nol</strong> menuju fullstack developer.
-            Dokumentasi jujur — yang bagus maupun yang berantakan. Berbasis di
-            <strong>Indonesia</strong>.
-          </p>
-          <div class="home-button">
-            <button class="home-button-left">LIHAT WORK ↬</button>
-            <button class="home-button-right">GET IN TOUCH</button>
-          </div>
-        </div>
-        <div class="home-right">
-          <div class="home-right-container">
-            <div class="home-right-photos">
-              <img
-                class="home-foto"
-                src="assets\img_card\photo_card.jpg"
-                alt="pas_foto"
-              />
-              <span id="tag">@adyala.dev</span>
-            </div>
-            <div class="home-right-status">
-              <div class="box-status">
-                <h1>1</h1>
-                <p>DAY LEARNINGS</p>
-              </div>
-              <div class="box-status">
-                <h1>9</h1>
-                <p>PROJECT</p>
-              </div>
-              <div class="box-status">
-                <h1>∞</h1>
-                <p>SEMANGAT</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section id="about">
-      <div class="about-container">
-        <div class="about-left">
-          <div class="about-left-text">
-            <span class="about-status">02 - ABOUT</span>
-            <p class="about-welcome">
-              Who <br />
-              am I.
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#work">WORK</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+          </ul>
+
+          <!-- ✅ Ganti <h2> jadi <p> — ini bukan heading, ini status text -->
+          <p class="nav-status">Available For Contract Work</p>
+        </div>
+      </nav>
+    </header>
+
+    <!--
+      ✅ <main> membungkus semua konten utama halaman
+         Hanya boleh ADA SATU <main> per halaman
+         Membantu screen reader langsung lompat ke konten utama
+    -->
+    <main>
+      <!-- ═══════════════ HOME ═══════════════ -->
+      <!--
+        ✅ <section> untuk kelompok konten bertema — cocok untuk hero/home
+           Tambah aria-labelledby agar screen reader tahu nama section ini
+      -->
+      <section id="home" aria-labelledby="home-heading">
+        <div class="home-container">
+          <div class="home-left">
+            <span class="home-status">
+              <span class="home-dot" aria-hidden="true">●</span>
+              Learning in public · Day XX
+            </span>
+
+            <!--
+              ✅ <h1> untuk judul utama halaman — hanya SATU per halaman
+                 id="home-heading" untuk disambungkan ke aria-labelledby di atas
+            -->
+            <h1 id="home-heading" class="home-welcome">
+              Hi, I'm
+              <span class="fire-color">Azanata.</span>
+              <span class="electric-color">Developer</span>
+              <br />
+              in progress.
+            </h1>
+
+            <p class="home-bio">
+              Belajar coding dari <strong>nol</strong> menuju fullstack
+              developer. Dokumentasi jujur — yang bagus maupun yang berantakan.
+              Berbasis di <strong>Indonesia</strong>.
             </p>
+
+            <div class="home-button">
+              <!--
+                ✅ Tombol yang navigasi ke section lain lebih baik pakai <a>
+                   bukan <button> — <button> untuk aksi, <a> untuk navigasi
+              -->
+              <a href="#work" class="home-button-left">LIHAT WORK ↬</a>
+              <a href="#contact" class="home-button-right">GET IN TOUCH</a>
+            </div>
+          </div>
+
+          <div class="home-right">
+            <div class="home-right-container">
+              <div class="home-right-photos">
+                <!--
+                  ✅ Alt text yang deskriptif — bukan "pas_foto"
+                     Deskripsikan isi gambar dengan jelas
+                -->
+                <img
+                  class="home-foto"
+                  src="assets/img_card/photo_card.jpg"
+                  alt="Foto profil Azanata, fullstack developer in progress"
+                  width="300"
+                  loading="lazy"
+                />
+                <span id="tag" aria-hidden="true">@adyala.dev</span>
+              </div>
+
+              <!--
+                ✅ Stats pakai <dl> (description list) — ini data key-value
+                   Lebih semantic dari div biasa untuk statistik
+              -->
+              <dl class="home-right-status">
+                <div class="box-status">
+                  <dt class="box-status-label">DAY LEARNINGS</dt>
+                  <dd class="box-status-value">2</dd>
+                </div>
+                <div class="box-status">
+                  <dt class="box-status-label">PROJECT</dt>
+                  <dd class="box-status-value">9</dd>
+                </div>
+                <div class="box-status">
+                  <dt class="box-status-label">SEMANGAT</dt>
+                  <dd class="box-status-value">∞</dd>
+                </div>
+              </dl>
+            </div>
           </div>
         </div>
-        <div class="about-right">
-          <div class="about-right-container">
-            <div class="about-right-teks">
-              <h4>
-                Self-taught developer yang lagi dalam perjalanan dari HTML biasa
-                ke fullstack developer.
-              </h4>
-              <h5>
-                Nama brand ini - <b>adyala.dev</b> - bukan sekadar username. Ada
-                cerita di balik setiap hurufnya. Ada orang-orang yang aku sayang
-                yang bikin aku terus jalan bahkan di hari-hari yang paling bikin
-                pengen nyerah. <br /><br />Aku percaya bahwa proses belajar yang
-                jujur dan didokumentasikan lebih berharga dari hasil yang
-                sempurna yang disembunyikan. Ini bukan portofolio yang dipoles -
-                ini perjalanan nyata.
-              </h5>
-            </div>
-            <div class="about-right-stack">
-              <div class="stack-title">
-                <h2>CURRENT STACK</h2>
+      </section>
+
+      <!-- ═══════════════ ABOUT ═══════════════ -->
+      <!--
+        ✅ <section> dengan aria-labelledby menunjukkan
+           ini adalah section "About" yang berdiri sendiri
+      -->
+      <section id="about" aria-labelledby="about-heading">
+        <div class="about-container">
+          <div class="about-left">
+            <p class="about-status">02 — ABOUT</p>
+            <!--
+              ✅ <h2> untuk heading section — satu level di bawah <h1>
+                 Hierarki: h1 (home) → h2 (about, work, contact)
+            -->
+            <h2 id="about-heading" class="about-welcome">Who <br />am I.</h2>
+          </div>
+
+          <div class="about-right">
+            <div class="about-right-container">
+              <div class="about-right-teks">
+                <!--
+                  ✅ <h3> untuk sub-heading di dalam section about
+                     Satu level di bawah h2
+                -->
+                <h3>
+                  Self-taught developer yang lagi dalam perjalanan dari HTML
+                  biasa ke fullstack developer.
+                </h3>
+                <p>
+                  Nama brand ini — <strong>adyala.dev</strong> — bukan sekadar
+                  username. Ada cerita di balik setiap hurufnya. Ada orang-orang
+                  yang aku sayang yang bikin aku terus jalan bahkan di hari-hari
+                  yang paling bikin pengen nyerah. <br /><br />
+                  Aku percaya bahwa proses belajar yang jujur dan
+                  didokumentasikan lebih berharga dari hasil yang sempurna yang
+                  disembunyikan. Ini bukan portofolio yang dipoles — ini
+                  perjalanan nyata.
+                </p>
               </div>
-              <div class="stack">
-                <span class="stack-name">HTML</span>
-                <span class="stack-name">CSS</span>
-                <span class="stack-name">JavaScript</span>
-                <span class="stack-name">React</span>
-                <span class="stack-name">Node.Js</span>
-                <span class="stack-name">PostgreSQL</span>
-                <span class="stack-name">Express</span>
-                <span class="stack-name">Git / GitHub</span>
-                <span class="stack-name">Vercel</span>
-                <span class="stack-name">Figma</span>
+
+              <div class="about-right-stack">
+                <div class="stack-title">
+                  <!--
+                    ✅ <h3> untuk sub-section heading
+                  -->
+                  <h3>CURRENT STACK</h3>
+                </div>
+
+                <!--
+                  ✅ Stack list pakai <ul> — ini memang sebuah list item
+                     Lebih semantic dari deretan <span>
+                -->
+                <ul class="stack" aria-label="Daftar teknologi yang dikuasai">
+                  <li class="stack-name stack-done">HTML</li>
+                  <li class="stack-name stack-done">CSS</li>
+                  <li class="stack-name stack-done">JavaScript</li>
+                  <li class="stack-name stack-learning">React</li>
+                  <li class="stack-name stack-learning">Node.js</li>
+                  <li class="stack-name">PostgreSQL</li>
+                  <li class="stack-name">Express</li>
+                  <li class="stack-name">Git / GitHub</li>
+                  <li class="stack-name">Vercel</li>
+                  <li class="stack-name">Figma</li>
+                </ul>
+
+                <!--
+                  ✅ Legend pakai <dl> — ini pasangan key-value (warna : status)
+                -->
+                <dl class="stack-status" aria-label="Keterangan status stack">
+                  <div>
+                    <dt class="stack-status-dot stack-done-dot">■</dt>
+                    <dd>Sudah Bisa</dd>
+                  </div>
+                  <div>
+                    <dt class="stack-status-dot stack-learning-dot">■</dt>
+                    <dd>Sedang Belajar</dd>
+                  </div>
+                  <div>
+                    <dt class="stack-status-dot">■</dt>
+                    <dd>Next Target</dd>
+                  </div>
+                </dl>
               </div>
-              <div class="stack-status">
-                <span>
-                  <span>x</span>
-                  <span>Sudah Bisa</span>
-                </span>
-                <span>
-                  <span>x</span>
-                  <span>Sedang Belajar</span>
-                </span>
-                <span>
-                  <span>x</span>
-                  <span>Next Target</span>
-                </span>
-              </div>
-            </div>
-            <div class="stack-log">
-              <div class="stack-title">
-                <h2>JOURNEY</h2>
-              </div>
-              <div>
-                <table>
-                  <tr>
-                    <th class="th1">TANGGAL</th>
-                    <th class="th2">STATUS</th>
-                    <th class="th3">STACK</th>
-                  </tr>
-                  <tr>
-                    <td>Januari 2021</td>
-                    <td>Sudah Dilaksanakan</td>
-                    <td>Pertama Belajar HTML, CSS, JS</td>
-                  </tr>
-                  <tr>
-                    <td>Agustus 2023</td>
-                    <td>Sudah Dilaksanakan</td>
-                    <td>Menguasai DOM JS</td>
-                  </tr>
-                  <tr>
-                    <td>Desember 2024</td>
-                    <td>Sudah Dilaksanakan</td>
-                    <td>Memahami Git, GitHub, PHP dan Laravel</td>
-                  </tr>
-                  <tr>
-                    <td>Juli - September 2025</td>
-                    <td>Sudah Dilaksanakan</td>
-                    <td>
-                      Magang di PT. PLN Nusa Daya, serta membangun 3 aplikasi
-                      kantor [PHP,Laravel]
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Maret 2026</td>
-                    <td>Sedang Dilaksanakan</td>
-                    <td>
-                      Sedang Fokus Membangun Portofolio, dan Melatih ulang skill
-                      pemrograman [HTML,CSS,JS]
-                    </td>
-                  </tr>
+
+              <!--
+                ✅ Journey pakai <table> — ini memang data tabular dengan
+                   hubungan baris dan kolom yang jelas
+                   Tambah <caption> agar tabel punya judul yang accessible
+              -->
+              <div class="stack-log">
+                <div class="stack-title">
+                  <h3>JOURNEY</h3>
+                </div>
+                <table aria-label="Timeline perjalanan belajar">
+                  <caption class="sr-only">
+                    Timeline perjalanan belajar Azanata
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col" class="th1">TANGGAL</th>
+                      <th scope="col" class="th2">STATUS</th>
+                      <th scope="col" class="th3">KETERANGAN</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Januari 2021</td>
+                      <td>Selesai</td>
+                      <td>Pertama belajar HTML, CSS, JS</td>
+                    </tr>
+                    <tr>
+                      <td>Agustus 2023</td>
+                      <td>Selesai</td>
+                      <td>Menguasai DOM JavaScript</td>
+                    </tr>
+                    <tr>
+                      <td>Desember 2024</td>
+                      <td>Selesai</td>
+                      <td>Memahami Git, GitHub, PHP dan Laravel</td>
+                    </tr>
+                    <tr>
+                      <td>Juli – September 2025</td>
+                      <td>Selesai</td>
+                      <td>
+                        Magang di PT. PLN Nusa Daya, membangun 3 aplikasi kantor
+                        (PHP, Laravel)
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Maret 2026</td>
+                      <td>Berlangsung</td>
+                      <td>
+                        Fokus membangun portofolio dan melatih ulang skill
+                        (HTML, CSS, JS)
+                      </td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="work">
-      <div class="work-container">
-        <div class="work-container-top">
-          <div class="work-left">
-            <div class="work-left-text">
-              <span class="work-status">03 - WORK</span>
-              <h1 class="work-welcome">Project & Work Log.</h1>
+      <!-- ═══════════════ WORK ═══════════════ -->
+      <section id="work" aria-labelledby="work-heading">
+        <div class="work-container">
+          <div class="work-container-top">
+            <div class="work-left">
+              <p class="work-status">03 — WORK</p>
+              <h2 id="work-heading" class="work-welcome">
+                Project & Work Log.
+              </h2>
+            </div>
+
+            <div class="work-right">
+              <!--
+                ✅ Filter buttons pakai <nav> dengan aria-label
+                   Ini adalah navigasi filter, bukan random buttons
+              -->
+              <nav class="work-filter" aria-label="Filter project">
+                <ul class="work-right-box">
+                  <li>
+                    <button class="filter-btn active" data-filter="all">
+                      ALL
+                    </button>
+                  </li>
+                  <li>
+                    <button class="filter-btn" data-filter="frontend">
+                      FRONTEND
+                    </button>
+                  </li>
+                  <li>
+                    <button class="filter-btn" data-filter="fullstack">
+                      FULLSTACK
+                    </button>
+                  </li>
+                  <li>
+                    <button class="filter-btn" data-filter="inprogress">
+                      IN PROGRESS
+                    </button>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
-          <div class="work-right">
-            <div class="work-right-box">
-              <span id="work-all">ALL</span>
-              <span id="work-frontend">FRONTEND</span>
-              <span id="work-fullstack">FULLSTACK</span>
-              <span id="work-inprogress">INPROGRESS</span>
-            </div>
+
+          <!--
+            ✅ Project list pakai <ul> — ini list of projects
+               Setiap project pakai <article> — konten mandiri yang bisa berdiri sendiri
+               <article> cocok karena setiap card project bisa dicabut dan masih makes sense
+          -->
+          <ul class="work-container-bottom" aria-label="Daftar project">
+            <li class="work-item" data-type="fullstack">
+              <article class="work-list">
+                <figure class="card-figure">
+                  <img
+                    class="card-img"
+                    src="assets/300x200.jpg"
+                    alt="Screenshot aplikasi HRIS PT PLN Nusa Daya"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="card-body">
+                  <h3>HRIS — PT PLN Nusa Daya</h3>
+                  <p>
+                    Migrasi dan pengembangan sistem Human Resource Information
+                    System dari PHP native ke Laravel.
+                  </p>
+                  <ul class="card-stack" aria-label="Tech stack">
+                    <li>Laravel</li>
+                    <li>MySQL</li>
+                    <li>Bootstrap</li>
+                  </ul>
+                  <div class="work-button">
+                    <a
+                      href="#"
+                      class="button1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                    <a
+                      href="#"
+                      class="button2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <li class="work-item" data-type="fullstack">
+              <article class="work-list">
+                <figure class="card-figure">
+                  <img
+                    class="card-img"
+                    src="assets/300x200.jpg"
+                    alt="Screenshot aplikasi ASKA PT PLN Nusa Daya"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="card-body">
+                  <h3>ASKA — PT PLN Nusa Daya</h3>
+                  <p>
+                    Migrasi sistem ASKA dari PHP ke Laravel untuk PT PLN Nusa
+                    Daya.
+                  </p>
+                  <ul class="card-stack" aria-label="Tech stack">
+                    <li>Laravel</li>
+                    <li>MySQL</li>
+                    <li>PHP</li>
+                  </ul>
+                  <div class="work-button">
+                    <a
+                      href="#"
+                      class="button1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                    <a
+                      href="#"
+                      class="button2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <li class="work-item" data-type="fullstack">
+              <article class="work-list">
+                <figure class="card-figure">
+                  <img
+                    class="card-img"
+                    src="assets/300x200.jpg"
+                    alt="Screenshot aplikasi GCG PT PLN Nusa Daya"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="card-body">
+                  <h3>GCG — PT PLN Nusa Daya</h3>
+                  <p>
+                    Pengembangan sistem GCG berbasis Laravel untuk kebutuhan
+                    internal PLN Nusa Daya.
+                  </p>
+                  <ul class="card-stack" aria-label="Tech stack">
+                    <li>Laravel</li>
+                    <li>MySQL</li>
+                    <li>PHP</li>
+                  </ul>
+                  <div class="work-button">
+                    <a
+                      href="#"
+                      class="button1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                    <a
+                      href="#"
+                      class="button2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <li class="work-item" data-type="fullstack">
+              <article class="work-list">
+                <figure class="card-figure">
+                  <img
+                    class="card-img"
+                    src="assets/300x200.jpg"
+                    alt="Screenshot aplikasi inventaris PT MPJ"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="card-body">
+                  <h3>Inventaris — PT MPJ</h3>
+                  <p>
+                    Sistem manajemen inventaris barang untuk kebutuhan internal
+                    PT MPJ.
+                  </p>
+                  <ul class="card-stack" aria-label="Tech stack">
+                    <li>Laravel</li>
+                    <li>MySQL</li>
+                  </ul>
+                  <div class="work-button">
+                    <a
+                      href="#"
+                      class="button1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                    <a
+                      href="#"
+                      class="button2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <li class="work-item" data-type="frontend">
+              <article class="work-list">
+                <figure class="card-figure">
+                  <img
+                    class="card-img"
+                    src="assets/300x200.jpg"
+                    alt="Screenshot company profile PT MPJ"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="card-body">
+                  <h3>Company Profile — PT MPJ</h3>
+                  <p>Website company profile untuk PT MPJ.</p>
+                  <ul class="card-stack" aria-label="Tech stack">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                  </ul>
+                  <div class="work-button">
+                    <a
+                      href="#"
+                      class="button1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                    <a
+                      href="#"
+                      class="button2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </li>
+
+            <li class="work-item" data-type="frontend">
+              <article class="work-list">
+                <figure class="card-figure">
+                  <img
+                    class="card-img"
+                    src="assets/300x200.jpg"
+                    alt="Screenshot portfolio adyala.dev"
+                    loading="lazy"
+                  />
+                </figure>
+                <div class="card-body">
+                  <h3>adyala.dev — Portfolio</h3>
+                  <p>
+                    Portfolio personal yang sedang dibangun — rebuild dari
+                    memori sebagai latihan HTML & CSS.
+                  </p>
+                  <ul class="card-stack" aria-label="Tech stack">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                  </ul>
+                  <div class="work-button">
+                    <a
+                      href="https://github.com/radittaza/adyala-portofolio"
+                      class="button1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >GitHub</a
+                    >
+                    <a
+                      href="#"
+                      class="button2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Live</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ═══════════════ CONTACT ═══════════════ -->
+      <!--
+        ✅ Tambah section contact yang belum ada di kode aslimu
+      -->
+      <section id="contact" aria-labelledby="contact-heading">
+        <div class="contact-container">
+          <div class="contact-left">
+            <p class="contact-status">04 — CONTACT</p>
+            <h2 id="contact-heading" class="contact-welcome">Let's Connect.</h2>
+            <p class="contact-note">
+              Open untuk kolaborasi, feedback project, atau sekadar ngobrol soal
+              coding. Juga sedang aktif cari kesempatan sebagai junior / intern
+              developer.
+            </p>
+          </div>
+
+          <div class="contact-right">
+            <!--
+              ✅ Form dengan label yang benar
+                 Setiap input WAJIB punya <label> dengan for yang cocok dengan id input
+                 Ini penting untuk accessibility dan UX
+            -->
+            <form action="#" method="POST" class="contact-form" novalidate>
+              <div class="form-group">
+                <label for="nama">Nama</label>
+                <input
+                  type="text"
+                  id="nama"
+                  name="nama"
+                  placeholder="Nama kamu"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="email@kamu.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Tentang apa?"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="pesan">Pesan</label>
+                <textarea
+                  id="pesan"
+                  name="pesan"
+                  rows="5"
+                  placeholder="Tuliskan pesanmu di sini..."
+                  required
+                  maxlength="1000"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="contact-btn">Kirim Pesan →</button>
+            </form>
           </div>
         </div>
-        <div class="work-container-bottom">
-          <div><img src="asdasdasdasd" alt="">asdadasdasd</div>
+      </section>
+    </main>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <!--
+      ✅ <footer> untuk bagian bawah halaman — sudah semantic
+         Perbaikan: konten footer disesuaikan dengan brand adyala.dev
+    -->
+    <footer id="site-footer">
+      <div class="footer-container">
+        <div class="footer-section about">
+          <h3>adyala<span class="fire-color">.dev</span></h3>
+          <p>
+            Dari nol menuju fullstack developer. Dokumentasi jujur, no filter.
+          </p>
+        </div>
+
+        <div class="footer-section links">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section social">
+          <h4>Temukan Saya</h4>
+          <ul class="social-icons">
+            <li>
+              <a
+                href="https://github.com/radittaza"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://instagram.com/adyala.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com/in/adyala"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn</a
+              >
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
+
+      <div class="footer-bottom">
+        <!--
+          ✅ <small> untuk copyright — ini teks kecil legal, bukan konten utama
+        -->
+        <small>&copy; 2026 adyala.dev. Semua Hak Dilindungi.</small>
+      </div>
+    </footer>
   </body>
 </html>

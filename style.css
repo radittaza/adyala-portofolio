@@ -15,6 +15,12 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 #site-header {
   position: sticky;
   top: 0;
@@ -46,19 +52,15 @@ body {
   margin: 0 20px 0 20px;
 }
 
-ul {
+nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
   margin: auto;
   font-size: 18px;
 }
-
-a {
-  text-decoration: none;
-  color: #000000;
-  transition: color 0.5s ease;
-}
+ul { list-style: none; padding: 0; margin: 0; }
+a { text-decoration: none; color: inherit; transition: color 0.2s; }
 
 .nav-status {
   display: flex;
@@ -217,24 +219,6 @@ a:hover {
   border: 2px solid rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-around;
-}
-
-.box-status {
-  flex-wrap: wrap;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
-}
-
-.box-status dt {
-  font-size: 0.8em;
-  color: var(--fire-color);
-}
-.box-status dd {
-  font-size: 0.7rem;
-  color: rgba(0, 0, 0, 0.5);
 }
 
 /* ================= ABOUT ==================== */
@@ -443,10 +427,120 @@ th, td {
   flex-direction: column;
   text-align: center;
 }
+
+/* Contact =============================================*/
+#contact {
+  height: 100vh;
+  min-height: 600px;
+  max-height: 1000px;
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container {
+  height: 80%;
+  width: 80%;
+  display: flex;
+}
+.contact-status {
+  color: var(--fire-color);
+  font-size: 0.8rem;
+  font-family: Roboto, sans-serif;
+}
+.contact-left {
+  width: 50%;
+}
+
+.contact-note {
+  font-size: 1.3rem;
+  margin: auto 0;
+}
+
+.contact-right {
+  width: 50%;
+  padding: 100px;
+}
+.contact-welcome {
+  font-size: 5rem;
+  font-family: Syne, sans-serif;
+}
+
+.contact-form {
+  max-width: 500px;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-group {
+  margin-bottom: 1.3rem;
+}
+
+/* Gaya Label */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Gaya Input & Textarea */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Efek saat Input diklik (Focus) */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Khusus Textarea agar tidak bisa di-resize sembarangan */
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Tombol Kirim */
+.contact-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+}
+
+.contact-btn:hover {
+  background-color: #0056b3;
+}
+
+.contact-btn:active {
+  transform: scale(0.98);
+}
+
 /* Styling Footer */
-.main-footer {
+#site-footer {
   height: 30vh;
-  background-color: white;
+  background-color: var(--linen-color);
   color: #ffffff;
   padding: 4rem 0 2rem; /* Menggunakan rem untuk padding yang konsisten */
   font-family: sans-serif;
@@ -457,7 +551,8 @@ th, td {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 50px;
 }
 
 .footer-section {
@@ -501,4 +596,410 @@ th, td {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.9rem;
   color: #888;
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN
+   =========================================== */
+
+/* Tablet Landscape & Desktop Small (1024px ke bawah) */
+@media (max-width: 1024px) {
+  .home-welcome,
+  .work-welcome,
+  .contact-welcome {
+    font-size: 3.5rem;
+  }
+  
+  .about-welcome {
+    font-size: 3rem;
+  }
+  
+  .work-list {
+    width: 500px;
+    height: 350px;
+  }
+}
+
+/* Tablet Portrait (768px ke bawah) */
+@media (max-width: 768px) {
+  /* Navigation */
+  #nav {
+    height: 70px;
+  }
+  
+  .nav-container {
+    width: 95%;
+    flex-direction: column;
+    height: auto;
+    padding: 15px 0;
+    gap: 10px;
+  }
+  
+  ul {
+    gap: 15px;
+    font-size: 16px;
+  }
+  
+  .nav-status {
+    font-size: 11px;
+    margin: 0;
+  }
+
+  /* Home Section */
+  #home {
+    height: 100vh;
+    min-height: unset;
+    padding: 20px 0;
+  }
+  
+  .home-container {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .home-left,
+  .home-right {
+    flex: none;
+    width: 100%;
+  }
+  
+  .home-welcome {
+    font-size: 2.8rem;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .home-bio {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .home-right-container {
+    width: 70%;
+  }
+  
+  #tag {
+    bottom: 120px;
+    right: -10px;
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+
+  /* About Section */
+  #about {
+    height: auto;
+    min-height: unset;
+    padding: 60px 0;
+  }
+  
+  .about-container {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .about-left,
+  .about-right {
+    flex: none;
+    width: 100%;
+  }
+  
+  .about-welcome {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .stack {
+    justify-content: center;
+  }
+  
+  .stack li {
+    font-size: 1.2rem;
+    padding: 8px 15px;
+  }
+
+  /* Work Section */
+  #work {
+    height: auto;
+    padding: 60px 0;
+  }
+  
+  .work-container {
+    width: 95%;
+    height: auto;
+  }
+  
+  .work-container-top {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .work-welcome {
+    font-size: 2.8rem;
+  }
+  
+  .work-right-box {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .filter-btn {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+  
+  .work-container-bottom {
+    gap: 25px;
+  }
+  
+  .work-list {
+    width: 100%;
+    max-width: 400px;
+    height: 320px;
+  }
+
+  /* Contact Section */
+  #contact {
+    height: auto;
+    padding: 60px 0;
+  }
+  
+  .contact-container {
+    width: 95%;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .contact-left,
+  .contact-right {
+    width: 100%;
+  }
+  
+  .contact-right {
+    padding: 20px;
+  }
+  
+  .contact-welcome {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+  
+  .contact-note {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  /* Footer */
+  .footer-container {
+    width: 95%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  #site-footer {
+    height: auto;
+    padding: 3rem 0 1.5rem;
+  }
+}
+
+/* Mobile Landscape (480px ke bawah) */
+@media (max-width: 480px) {
+  /* Navigation */
+  #nav {
+    height: 65px;
+  }
+  
+  .nav-container {
+    width: 98%;
+  }
+  
+  ul {
+    gap: 10px;
+    font-size: 14px;
+  }
+  
+  #nav-logo {
+    font-size: 18px;
+  }
+
+  /* Home */
+  .home-welcome,
+  .work-welcome,
+  .contact-welcome {
+    font-size: 2.2rem;
+  }
+  
+  .about-welcome {
+    font-size: 2rem;
+  }
+  
+  .home-right-container {
+    width: 85%;
+  }
+  
+  .home-foto {
+    border-width: 1px;
+  }
+  
+  #tag {
+    bottom: 110px;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+  
+  .home-button {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .home-button-left,
+  .home-button-right {
+    width: 200px;
+    text-align: center;
+  }
+
+  /* Buttons */
+  .home-button-left,
+  .home-button-right,
+  .filter-btn {
+    font-size: 11px;
+    padding: 12px 20px;
+  }
+
+  /* Work Cards */
+  .work-list {
+    height: 280px;
+  }
+  
+  .card-body h3 {
+    font-size: 1.1rem;
+  }
+  
+  .card-body p {
+    font-size: 0.9rem;
+  }
+
+  /* Contact Form */
+  .contact-form {
+    padding: 1.5rem;
+  }
+  
+  .form-group label {
+    font-size: 0.85rem;
+  }
+  
+  .contact-btn {
+    font-size: 0.95rem;
+    padding: 0.9rem;
+  }
+
+  /* Table Responsive */
+  .stack-log table,
+  .stack-log thead,
+  .stack-log tbody,
+  .stack-log th,
+  .stack-log td,
+  .stack-log tr {
+    display: block;
+  }
+  
+  .stack-log thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  .stack-log tr {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    background: var(--paper-color);
+  }
+  
+  .stack-log td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+  
+  .stack-log td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 6px;
+    width: 45%;
+    font-weight: 600;
+    text-align: left;
+  }
+  
+  .stack-log td:first-child {
+    padding-left: 10px;
+    text-align: left;
+  }
+  
+  .stack-log td:first-child:before {
+    content: none;
+  }
+}
+
+/* Mobile Portrait (375px ke bawah) - Extra Small */
+@media (max-width: 375px) {
+  .home-welcome,
+  .work-welcome,
+  .contact-welcome {
+    font-size: 1.9rem;
+  }
+  
+  .about-welcome {
+    font-size: 1.8rem;
+  }
+  
+  .work-list {
+    height: 260px;
+  }
+  
+  .home-right-container {
+    width: 90%;
+  }
+  
+  ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* High DPI Displays (Retina) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .home-foto,
+  .card-img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Landscape Orientation Fix */
+@media (max-height: 500px) and (orientation: landscape) {
+  #home,
+  #about,
+  #work,
+  #contact {
+    height: auto;
+    min-height: unset;
+    padding: 30px 0;
+  }
+  
+  .home-container,
+  .about-container,
+  .work-container,
+  .contact-container {
+    height: auto;
+  }
 }

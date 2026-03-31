@@ -121,53 +121,21 @@
                 />
                 <span id="tag" aria-hidden="true">@adyala.dev</span>
               </div>
-
-              <!--
-                ✅ Stats pakai <dl> (description list) — ini data key-value
-                   Lebih semantic dari div biasa untuk statistik
-              -->
-              <dl class="home-right-status">
-                <div class="box-status">
-                  <dt class="box-status-label">DAY LEARNINGS</dt>
-                  <dd class="box-status-value">2</dd>
-                </div>
-                <div class="box-status">
-                  <dt class="box-status-label">PROJECT</dt>
-                  <dd class="box-status-value">9</dd>
-                </div>
-                <div class="box-status">
-                  <dt class="box-status-label">SEMANGAT</dt>
-                  <dd class="box-status-value">∞</dd>
-                </div>
-              </dl>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ═══════════════ ABOUT ═══════════════ -->
-      <!--
-        ✅ <section> dengan aria-labelledby menunjukkan
-           ini adalah section "About" yang berdiri sendiri
-      -->
       <section id="about" aria-labelledby="about-heading">
         <div class="about-container">
           <div class="about-left">
             <p class="about-status">02 — ABOUT</p>
-            <!--
-              ✅ <h2> untuk heading section — satu level di bawah <h1>
-                 Hierarki: h1 (home) → h2 (about, work, contact)
-            -->
             <h2 id="about-heading" class="about-welcome">Who <br />am I.</h2>
           </div>
 
           <div class="about-right">
             <div class="about-right-container">
               <div class="about-right-teks">
-                <!--
-                  ✅ <h3> untuk sub-heading di dalam section about
-                     Satu level di bawah h2
-                -->
                 <h3>
                   Self-taught developer yang lagi dalam perjalanan dari HTML
                   biasa ke fullstack developer.
@@ -186,16 +154,8 @@
 
               <div class="about-right-stack">
                 <div class="stack-title">
-                  <!--
-                    ✅ <h3> untuk sub-section heading
-                  -->
                   <h3>CURRENT STACK</h3>
                 </div>
-
-                <!--
-                  ✅ Stack list pakai <ul> — ini memang sebuah list item
-                     Lebih semantic dari deretan <span>
-                -->
                 <ul class="stack" aria-label="Daftar teknologi yang dikuasai">
                   <li class="stack-name stack-done">HTML</li>
                   <li class="stack-name stack-done">CSS</li>
@@ -208,10 +168,6 @@
                   <li class="stack-name">Vercel</li>
                   <li class="stack-name">Figma</li>
                 </ul>
-
-                <!--
-                  ✅ Legend pakai <dl> — ini pasangan key-value (warna : status)
-                -->
                 <dl class="stack-status" aria-label="Keterangan status stack">
                   <div>
                     <dt class="stack-status-dot stack-done-dot">■</dt>
@@ -227,12 +183,6 @@
                   </div>
                 </dl>
               </div>
-
-              <!--
-                ✅ Journey pakai <table> — ini memang data tabular dengan
-                   hubungan baris dan kolom yang jelas
-                   Tambah <caption> agar tabel punya judul yang accessible
-              -->
               <div class="stack-log">
                 <div class="stack-title">
                   <h3>JOURNEY</h3>
@@ -288,7 +238,6 @@
         </div>
       </section>
 
-      <!-- ═══════════════ WORK ═══════════════ -->
       <section id="work" aria-labelledby="work-heading">
         <div class="work-container">
           <div class="work-container-top">
@@ -300,10 +249,6 @@
             </div>
 
             <div class="work-right">
-              <!--
-                ✅ Filter buttons pakai <nav> dengan aria-label
-                   Ini adalah navigasi filter, bukan random buttons
-              -->
               <nav class="work-filter" aria-label="Filter project">
                 <ul class="work-right-box">
                   <li>
@@ -331,11 +276,6 @@
             </div>
           </div>
 
-          <!--
-            ✅ Project list pakai <ul> — ini list of projects
-               Setiap project pakai <article> — konten mandiri yang bisa berdiri sendiri
-               <article> cocok karena setiap card project bisa dicabut dan masih makes sense
-          -->
           <ul class="work-container-bottom" aria-label="Daftar project">
             <li class="work-item" data-type="fullstack">
               <article class="work-list">

@@ -15,6 +15,8 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html { scroll-behavior: smooth; }
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -22,11 +24,12 @@ body {
 }
 
 #site-header {
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 100;
-  border: solid 2px rgb(255, 225, 198);
-  border-style:groove ;
+  background: rgba(246, 238, 227, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--linen-color);
 }
 
 #nav {
@@ -259,12 +262,12 @@ a:hover {
   flex: 70%;
 }
 
-.about-right-teks h4 {
+.about-right-teks h3 {
   font-size: 2rem;
   padding-bottom: 40px;
 }
 
-.about-right-teks h5 {
+.about-right-teks p {
   font-weight: 500;
   font-size: 1.3rem;
   color: #444444;
@@ -290,7 +293,7 @@ a:hover {
 .stack li {
   border: 1px solid black;
   padding: 5px 20px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 500;
   background-color: var(--paper-color);
 }
@@ -302,6 +305,7 @@ a:hover {
   background-color: #a1a0a0;
 }
 .stack-status {
+  padding-top: 10px;
   display: flex;
   gap: 20px;
 }
@@ -392,12 +396,52 @@ th, td {
   gap: 10px;
 }
 
-.filter-btn {
-  padding: 10px 40px;
-  background-color: var(--fire-color);
-  color: white;
+.work-button {
+  display: flex;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--linen-color);
+}
+
+.button1, .button2 {
+  flex: 1;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 0.75rem;
   font-weight: 600;
-  border-radius: 10px;
+  letter-spacing: 1px;
+  border: 1px solid var(--ink-color);
+  transition: all 0.2s;
+}
+
+.button1:hover {
+  background: var(--ink-color);
+  color: white;
+}
+
+.button2:hover {
+  background: var(--fire-color);
+  border-color: var(--fire-color);
+  color: white;
+}
+
+.filter-btn {
+  padding: 8px 20px;
+  background: transparent;
+  color: var(--ink-color);
+  border: 1px solid var(--ink-color);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 0; /* buang border-radius, lebih sesuai brand */
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--ink-color);
+  color: white;
 }
 
 .work-container-bottom {
@@ -412,20 +456,39 @@ th, td {
 }
 
 .work-list {
-  width: 600px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  width: 300px;
+  height: auto; /* jangan fixed height */
+}
+
+.work-list:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 0 var(--ink-color);
 }
 
 .card-body {
+  padding: 16px;
+  text-align: left; /* bukan center */
+}
+
+.card-body h3 { font-size: 1rem; margin-bottom: 8px; }
+.card-body p  { font-size: 0.85rem; color: #666; margin-bottom: 12px; }
+
+.card-stack {
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.card-stack li {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  background: var(--linen-color);
+  border: 1px solid rgba(0,0,0,0.15);
 }
 
 /* Contact =============================================*/
@@ -460,7 +523,6 @@ th, td {
 
 .contact-right {
   width: 50%;
-  padding: 100px;
 }
 .contact-welcome {
   font-size: 5rem;
@@ -519,7 +581,7 @@ th, td {
 .contact-btn {
   width: 100%;
   padding: 1rem;
-  background-color: #007bff;
+  background-color: var(--ink-color);
   color: white;
   border: none;
   border-radius: 8px;
@@ -530,7 +592,7 @@ th, td {
 }
 
 .contact-btn:hover {
-  background-color: #0056b3;
+  background-color: var(--fire-color);
 }
 
 .contact-btn:active {
@@ -591,415 +653,8 @@ th, td {
 /* Bagian Bawah (Copyright) */
 .footer-bottom {
   text-align: center;
-  margin-top: 3rem;
-  padding-top: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.9rem;
   color: #888;
-}
-
-/* ===========================================
-   RESPONSIVE DESIGN
-   =========================================== */
-
-/* Tablet Landscape & Desktop Small (1024px ke bawah) */
-@media (max-width: 1024px) {
-  .home-welcome,
-  .work-welcome,
-  .contact-welcome {
-    font-size: 3.5rem;
-  }
-  
-  .about-welcome {
-    font-size: 3rem;
-  }
-  
-  .work-list {
-    width: 500px;
-    height: 350px;
-  }
-}
-
-/* Tablet Portrait (768px ke bawah) */
-@media (max-width: 768px) {
-  /* Navigation */
-  #nav {
-    height: 70px;
-  }
-  
-  .nav-container {
-    width: 95%;
-    flex-direction: column;
-    height: auto;
-    padding: 15px 0;
-    gap: 10px;
-  }
-  
-  ul {
-    gap: 15px;
-    font-size: 16px;
-  }
-  
-  .nav-status {
-    font-size: 11px;
-    margin: 0;
-  }
-
-  /* Home Section */
-  #home {
-    height: 100vh;
-    min-height: unset;
-    padding: 20px 0;
-  }
-  
-  .home-container {
-    width: 95%;
-    height: auto;
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .home-left,
-  .home-right {
-    flex: none;
-    width: 100%;
-  }
-  
-  .home-welcome {
-    font-size: 2.8rem;
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  .home-bio {
-    width: 100%;
-    text-align: center;
-    font-size: 1.1rem;
-  }
-  
-  .home-right-container {
-    width: 70%;
-  }
-  
-  #tag {
-    bottom: 120px;
-    right: -10px;
-    font-size: 12px;
-    padding: 8px 15px;
-  }
-
-  /* About Section */
-  #about {
-    height: auto;
-    min-height: unset;
-    padding: 60px 0;
-  }
-  
-  .about-container {
-    width: 95%;
-    height: auto;
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .about-left,
-  .about-right {
-    flex: none;
-    width: 100%;
-  }
-  
-  .about-welcome {
-    font-size: 2.5rem;
-    text-align: center;
-  }
-  
-  .stack {
-    justify-content: center;
-  }
-  
-  .stack li {
-    font-size: 1.2rem;
-    padding: 8px 15px;
-  }
-
-  /* Work Section */
-  #work {
-    height: auto;
-    padding: 60px 0;
-  }
-  
-  .work-container {
-    width: 95%;
-    height: auto;
-  }
-  
-  .work-container-top {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-  
-  .work-welcome {
-    font-size: 2.8rem;
-  }
-  
-  .work-right-box {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .filter-btn {
-    padding: 12px 25px;
-    font-size: 14px;
-  }
-  
-  .work-container-bottom {
-    gap: 25px;
-  }
-  
-  .work-list {
-    width: 100%;
-    max-width: 400px;
-    height: 320px;
-  }
-
-  /* Contact Section */
-  #contact {
-    height: auto;
-    padding: 60px 0;
-  }
-  
-  .contact-container {
-    width: 95%;
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .contact-left,
-  .contact-right {
-    width: 100%;
-  }
-  
-  .contact-right {
-    padding: 20px;
-  }
-  
-  .contact-welcome {
-    font-size: 2.8rem;
-    text-align: center;
-  }
-  
-  .contact-note {
-    text-align: center;
-    font-size: 1.2rem;
-  }
-
-  /* Footer */
-  .footer-container {
-    width: 95%;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 30px;
-  }
-  
-  #site-footer {
-    height: auto;
-    padding: 3rem 0 1.5rem;
-  }
-}
-
-/* Mobile Landscape (480px ke bawah) */
-@media (max-width: 480px) {
-  /* Navigation */
-  #nav {
-    height: 65px;
-  }
-  
-  .nav-container {
-    width: 98%;
-  }
-  
-  ul {
-    gap: 10px;
-    font-size: 14px;
-  }
-  
-  #nav-logo {
-    font-size: 18px;
-  }
-
-  /* Home */
-  .home-welcome,
-  .work-welcome,
-  .contact-welcome {
-    font-size: 2.2rem;
-  }
-  
-  .about-welcome {
-    font-size: 2rem;
-  }
-  
-  .home-right-container {
-    width: 85%;
-  }
-  
-  .home-foto {
-    border-width: 1px;
-  }
-  
-  #tag {
-    bottom: 110px;
-    font-size: 11px;
-    padding: 6px 12px;
-  }
-  
-  .home-button {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .home-button-left,
-  .home-button-right {
-    width: 200px;
-    text-align: center;
-  }
-
-  /* Buttons */
-  .home-button-left,
-  .home-button-right,
-  .filter-btn {
-    font-size: 11px;
-    padding: 12px 20px;
-  }
-
-  /* Work Cards */
-  .work-list {
-    height: 280px;
-  }
-  
-  .card-body h3 {
-    font-size: 1.1rem;
-  }
-  
-  .card-body p {
-    font-size: 0.9rem;
-  }
-
-  /* Contact Form */
-  .contact-form {
-    padding: 1.5rem;
-  }
-  
-  .form-group label {
-    font-size: 0.85rem;
-  }
-  
-  .contact-btn {
-    font-size: 0.95rem;
-    padding: 0.9rem;
-  }
-
-  /* Table Responsive */
-  .stack-log table,
-  .stack-log thead,
-  .stack-log tbody,
-  .stack-log th,
-  .stack-log td,
-  .stack-log tr {
-    display: block;
-  }
-  
-  .stack-log thead tr {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
-  
-  .stack-log tr {
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 8px;
-    background: var(--paper-color);
-  }
-  
-  .stack-log td {
-    border: none;
-    position: relative;
-    padding-left: 50%;
-    text-align: right;
-  }
-  
-  .stack-log td:before {
-    content: attr(data-label);
-    position: absolute;
-    left: 6px;
-    width: 45%;
-    font-weight: 600;
-    text-align: left;
-  }
-  
-  .stack-log td:first-child {
-    padding-left: 10px;
-    text-align: left;
-  }
-  
-  .stack-log td:first-child:before {
-    content: none;
-  }
-}
-
-/* Mobile Portrait (375px ke bawah) - Extra Small */
-@media (max-width: 375px) {
-  .home-welcome,
-  .work-welcome,
-  .contact-welcome {
-    font-size: 1.9rem;
-  }
-  
-  .about-welcome {
-    font-size: 1.8rem;
-  }
-  
-  .work-list {
-    height: 260px;
-  }
-  
-  .home-right-container {
-    width: 90%;
-  }
-  
-  ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-/* High DPI Displays (Retina) */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .home-foto,
-  .card-img {
-    image-rendering: -webkit-optimize-contrast;
-  }
-}
-
-/* Landscape Orientation Fix */
-@media (max-height: 500px) and (orientation: landscape) {
-  #home,
-  #about,
-  #work,
-  #contact {
-    height: auto;
-    min-height: unset;
-    padding: 30px 0;
-  }
-  
-  .home-container,
-  .about-container,
-  .work-container,
-  .contact-container {
-    height: auto;
-  }
+  background-color: var(--paper-color);
 }
